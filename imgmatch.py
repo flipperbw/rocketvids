@@ -81,7 +81,8 @@ if generate_videos or aggregate_video:
 
 # can take this out if you just want to read in the first file in adir
 vidcap = cv2.VideoCapture(videofile)
-fps = int(round(vidcap.get(5)))
+#fps = int(round(vidcap.get(5)))
+fps = 30
 maxframes = fps * maxsecs
 
 vid_w = vidcap.get(3)
@@ -185,6 +186,7 @@ def matchImg(image, frame):
         sub_movie = CompositeVideoClip([sub_movie, txt_clip])
         
         if generate_videos:
+            print 'Writing single video to %s/%s_%s.mp4' % (vdirectory, match_str, frame_time)
             sub_movie.write_videofile("%s/%s_%s.mp4" % (vdirectory, match_str, frame_time))
         else:
             video_list.append(sub_movie)

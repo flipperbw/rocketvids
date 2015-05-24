@@ -1,0 +1,6 @@
+*.py~
+*.flv
+*.mp4
+old/
+output/*.mp4
+output/*.flv
